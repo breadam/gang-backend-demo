@@ -13,6 +13,11 @@ var config = require("./app/config");
 app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser());
+app.use(express.static(__dirname + '/app/public'));
+
+app.get('/',function(req,res){
+	res.send('Gang socket server');
+});
 
 http.listen(config.port, function(){
 	console.log('express listening');
